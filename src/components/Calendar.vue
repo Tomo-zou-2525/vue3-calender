@@ -1,14 +1,19 @@
 <template>
-  <Calendar></Calendar>
+  <p>Hello Unko</p>
 </template>
 
 <script>
-import Calendar from "./componetns/Calendar.vue"
+import moment from "moment"
 
 export default {
-  name: "APP",
-  components: {
-    Calendar
+  //インスタンスが生成されてからマウント
+  mounted(){
+    //その月の最初に日を取得
+    let date = moment().startOf("month")
+    //日時を変数に代入
+    const youbiNum = date.day()
+    //ログで確認
+    console.log(youbiNum)
   }
 }
 
