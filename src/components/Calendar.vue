@@ -13,14 +13,23 @@ export default {
   },
   methods: {
     getStartDate() {
+      //moment(this.currentDate)
+      //でthis.currentDateのコピーを行う
       let date = moment(this.currentDate);
       date.startOf("moment");
       const youbiNum = date.day();
       return date.subtract(youbiNum, "days");
     },
+    getEndDate() {
+      let date = moment(this.currentDate);
+      date.endOf("month");
+      const youbiNum = date.day();
+      return date.add(6 - youbiNum, "days");
+    },
   },
   mounted() {
     console.log(this.getStartDate());
+    console.log(this.getEndDate());
   },
   //インスタンスが生成されてからマウント
   // mounted() {
